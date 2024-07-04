@@ -1,0 +1,438 @@
+Microsoft Windows [Version 10.0.22631.3737]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\AChinniProject>pip --version
+pip 24.1.1 from C:\Users\ajayk\AppData\Local\Programs\Python\Python312\Lib\site-packages\pip (python 3.12)
+
+D:\AChinniProject>mkdir chatbot_proj
+
+D:\AChinniProject>cd chatbot_proj
+
+D:\AChinniProject\chatbot_proj>python -m venv venv
+
+D:\AChinniProject\chatbot_proj>venv\Scripts\activate
+
+(venv) D:\AChinniProject\chatbot_proj>pip install nltk spacy
+Collecting nltk
+  Downloading nltk-3.8.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting spacy
+  Downloading spacy-3.7.5-cp312-cp312-win_amd64.whl.metadata (27 kB)
+Collecting click (from nltk)
+  Downloading click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting joblib (from nltk)
+  Downloading joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting regex>=2021.8.3 (from nltk)
+  Downloading regex-2024.5.15-cp312-cp312-win_amd64.whl.metadata (41 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.0/42.0 kB 503.7 kB/s eta 0:00:00
+Collecting tqdm (from nltk)
+  Downloading tqdm-4.66.4-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.6/57.6 kB 1.0 MB/s eta 0:00:00
+Collecting spacy-legacy<3.1.0,>=3.0.11 (from spacy)
+  Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting spacy-loggers<2.0.0,>=1.0.0 (from spacy)
+  Downloading spacy_loggers-1.0.5-py3-none-any.whl.metadata (23 kB)
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy)
+  Downloading murmurhash-1.0.10-cp312-cp312-win_amd64.whl.metadata (2.0 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy)
+  Downloading cymem-2.0.8-cp312-cp312-win_amd64.whl.metadata (8.6 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy)
+  Downloading preshed-3.0.9-cp312-cp312-win_amd64.whl.metadata (2.2 kB)
+Collecting thinc<8.3.0,>=8.2.2 (from spacy)
+  Downloading thinc-8.2.5-cp312-cp312-win_amd64.whl.metadata (15 kB)
+Collecting wasabi<1.2.0,>=0.9.1 (from spacy)
+  Downloading wasabi-1.1.3-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<3.0.0,>=2.4.3 (from spacy)
+  Downloading srsly-2.4.8-cp312-cp312-win_amd64.whl.metadata (20 kB)
+Collecting catalogue<2.1.0,>=2.0.6 (from spacy)
+  Downloading catalogue-2.0.10-py3-none-any.whl.metadata (14 kB)
+Collecting weasel<0.5.0,>=0.1.0 (from spacy)
+  Downloading weasel-0.4.1-py3-none-any.whl.metadata (4.6 kB)
+Collecting typer<1.0.0,>=0.3.0 (from spacy)
+  Downloading typer-0.12.3-py3-none-any.whl.metadata (15 kB)
+Collecting requests<3.0.0,>=2.13.0 (from spacy)
+  Downloading requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 (from spacy)
+  Downloading pydantic-2.8.2-py3-none-any.whl.metadata (125 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 125.2/125.2 kB 1.8 MB/s eta 0:00:00
+Collecting jinja2 (from spacy)
+  Downloading jinja2-3.1.4-py3-none-any.whl.metadata (2.6 kB)
+Collecting setuptools (from spacy)
+  Using cached setuptools-70.2.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting packaging>=20.0 (from spacy)
+  Downloading packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Collecting langcodes<4.0.0,>=3.2.0 (from spacy)
+  Downloading langcodes-3.4.0-py3-none-any.whl.metadata (29 kB)
+Collecting numpy>=1.19.0 (from spacy)
+  Downloading numpy-2.0.0-cp312-cp312-win_amd64.whl.metadata (60 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.9/60.9 kB 1.6 MB/s eta 0:00:00
+Collecting language-data>=1.2 (from langcodes<4.0.0,>=3.2.0->spacy)
+  Downloading language_data-1.2.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting annotated-types>=0.4.0 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy)
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.20.1 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy)
+  Downloading pydantic_core-2.20.1-cp312-none-win_amd64.whl.metadata (6.7 kB)
+Collecting typing-extensions>=4.6.1 (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy)
+  Downloading typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+Collecting charset-normalizer<4,>=2 (from requests<3.0.0,>=2.13.0->spacy)
+  Downloading charset_normalizer-3.3.2-cp312-cp312-win_amd64.whl.metadata (34 kB)
+Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.13.0->spacy)
+  Downloading idna-3.7-py3-none-any.whl.metadata (9.9 kB)
+Collecting urllib3<3,>=1.21.1 (from requests<3.0.0,>=2.13.0->spacy)
+  Downloading urllib3-2.2.2-py3-none-any.whl.metadata (6.4 kB)
+Collecting certifi>=2017.4.17 (from requests<3.0.0,>=2.13.0->spacy)
+  Downloading certifi-2024.7.4-py3-none-any.whl.metadata (2.2 kB)
+Collecting blis<0.8.0,>=0.7.8 (from thinc<8.3.0,>=8.2.2->spacy)
+  Downloading blis-0.7.11-cp312-cp312-win_amd64.whl.metadata (7.6 kB)
+Collecting confection<1.0.0,>=0.0.1 (from thinc<8.3.0,>=8.2.2->spacy)
+  Downloading confection-0.1.5-py3-none-any.whl.metadata (19 kB)
+Collecting numpy>=1.19.0 (from spacy)
+  Downloading numpy-1.26.4-cp312-cp312-win_amd64.whl.metadata (61 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.0/61.0 kB 1.6 MB/s eta 0:00:00
+Collecting colorama (from tqdm->nltk)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting shellingham>=1.3.0 (from typer<1.0.0,>=0.3.0->spacy)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=10.11.0 (from typer<1.0.0,>=0.3.0->spacy)
+  Downloading rich-13.7.1-py3-none-any.whl.metadata (18 kB)
+Collecting cloudpathlib<1.0.0,>=0.7.0 (from weasel<0.5.0,>=0.1.0->spacy)
+  Downloading cloudpathlib-0.18.1-py3-none-any.whl.metadata (14 kB)
+Collecting smart-open<8.0.0,>=5.2.1 (from weasel<0.5.0,>=0.1.0->spacy)
+  Downloading smart_open-7.0.4-py3-none-any.whl.metadata (23 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->spacy)
+  Downloading MarkupSafe-2.1.5-cp312-cp312-win_amd64.whl.metadata (3.1 kB)
+Collecting marisa-trie>=0.7.7 (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy)
+  Downloading marisa_trie-1.2.0-cp312-cp312-win_amd64.whl.metadata (9.0 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy)
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy)
+  Downloading pygments-2.18.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting wrapt (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy)
+  Downloading wrapt-1.16.0-cp312-cp312-win_amd64.whl.metadata (6.8 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading nltk-3.8.1-py3-none-any.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 1.8 MB/s eta 0:00:00
+Downloading spacy-3.7.5-cp312-cp312-win_amd64.whl (11.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 2.4 MB/s eta 0:00:00
+Downloading catalogue-2.0.10-py3-none-any.whl (17 kB)
+Downloading cymem-2.0.8-cp312-cp312-win_amd64.whl (39 kB)
+Downloading langcodes-3.4.0-py3-none-any.whl (182 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 182.0/182.0 kB 3.7 MB/s eta 0:00:00
+Downloading murmurhash-1.0.10-cp312-cp312-win_amd64.whl (25 kB)
+Downloading packaging-24.1-py3-none-any.whl (53 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 kB 2.7 MB/s eta 0:00:00
+Downloading preshed-3.0.9-cp312-cp312-win_amd64.whl (122 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 122.4/122.4 kB 3.6 MB/s eta 0:00:00
+Downloading pydantic-2.8.2-py3-none-any.whl (423 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.9/423.9 kB 2.9 MB/s eta 0:00:00
+Downloading pydantic_core-2.20.1-cp312-none-win_amd64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 1.7 MB/s eta 0:00:00
+Downloading regex-2024.5.15-cp312-cp312-win_amd64.whl (268 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 268.5/268.5 kB 1.8 MB/s eta 0:00:00
+Downloading requests-2.32.3-py3-none-any.whl (64 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.9/64.9 kB 3.6 MB/s eta 0:00:00
+Downloading spacy_legacy-3.0.12-py2.py3-none-any.whl (29 kB)
+Downloading spacy_loggers-1.0.5-py3-none-any.whl (22 kB)
+Downloading srsly-2.4.8-cp312-cp312-win_amd64.whl (478 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 478.8/478.8 kB 1.9 MB/s eta 0:00:00
+Downloading thinc-8.2.5-cp312-cp312-win_amd64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 2.4 MB/s eta 0:00:00
+Downloading numpy-1.26.4-cp312-cp312-win_amd64.whl (15.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.5/15.5 MB 2.9 MB/s eta 0:00:00
+Downloading tqdm-4.66.4-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.3/78.3 kB 1.1 MB/s eta 0:00:00
+Downloading typer-0.12.3-py3-none-any.whl (47 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.2/47.2 kB 2.3 MB/s eta 0:00:00
+Downloading click-8.1.7-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 5.5 MB/s eta 0:00:00
+Downloading wasabi-1.1.3-py3-none-any.whl (27 kB)
+Downloading weasel-0.4.1-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.3/50.3 kB ? eta 0:00:00
+Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 7.7 MB/s eta 0:00:00
+Downloading joblib-1.4.2-py3-none-any.whl (301 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 301.8/301.8 kB 4.6 MB/s eta 0:00:00
+Using cached setuptools-70.2.0-py3-none-any.whl (930 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading blis-0.7.11-cp312-cp312-win_amd64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 3.0 MB/s eta 0:00:00
+Downloading certifi-2024.7.4-py3-none-any.whl (162 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.0/163.0 kB 1.9 MB/s eta 0:00:00
+Downloading charset_normalizer-3.3.2-cp312-cp312-win_amd64.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.4/100.4 kB 1.9 MB/s eta 0:00:00
+Downloading cloudpathlib-0.18.1-py3-none-any.whl (47 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.3/47.3 kB 2.3 MB/s eta 0:00:00
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading confection-0.1.5-py3-none-any.whl (35 kB)
+Downloading idna-3.7-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.8/66.8 kB 3.5 MB/s eta 0:00:00
+Downloading language_data-1.2.0-py3-none-any.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 2.8 MB/s eta 0:00:00
+Downloading MarkupSafe-2.1.5-cp312-cp312-win_amd64.whl (17 kB)
+Downloading rich-13.7.1-py3-none-any.whl (240 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 240.7/240.7 kB 2.5 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smart_open-7.0.4-py3-none-any.whl (61 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.2/61.2 kB 3.2 MB/s eta 0:00:00
+Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Downloading urllib3-2.2.2-py3-none-any.whl (121 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.4/121.4 kB 1.8 MB/s eta 0:00:00
+Downloading marisa_trie-1.2.0-cp312-cp312-win_amd64.whl (151 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.1/151.1 kB 999.2 kB/s eta 0:00:00
+Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 990.9 kB/s eta 0:00:00
+Downloading pygments-2.18.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 5.1 MB/s eta 0:00:00
+Downloading wrapt-1.16.0-cp312-cp312-win_amd64.whl (37 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: cymem, wrapt, urllib3, typing-extensions, spacy-loggers, spacy-legacy, shellingham, setuptools, regex, pygments, packaging, numpy, murmurhash, mdurl, MarkupSafe, joblib, idna, colorama, cloudpathlib, charset-normalizer, certifi, catalogue, annotated-types, wasabi, tqdm, srsly, smart-open, requests, pydantic-core, preshed, markdown-it-py, marisa-trie, jinja2, click, blis, rich, pydantic, nltk, language-data, typer, langcodes, confection, weasel,thinc, spacy
+Successfully installed MarkupSafe-2.1.5 annotated-types-0.7.0 blis-0.7.11 catalogue-2.0.10 certifi-2024.7.4 charset-normalizer-3.3.2 click-8.1.7 cloudpathlib-0.18.1 colorama-0.4.6 confection-0.1.5 cymem-2.0.8 idna-3.7 jinja2-3.1.4 joblib-1.4.2 langcodes-3.4.0 language-data-1.2.0 marisa-trie-1.2.0 markdown-it-py-3.0.0 mdurl-0.1.2 murmurhash-1.0.10 nltk-3.8.1numpy-1.26.4 packaging-24.1 preshed-3.0.9 pydantic-2.8.2 pydantic-core-2.20.1 pygments-2.18.0 regex-2024.5.15 requests-2.32.3 rich-13.7.1 setuptools-70.2.0 shellingham-1.5.4 smart-open-7.0.4 spacy-3.7.5 spacy-legacy-3.0.12 spacy-loggers-1.0.5 srsly-2.4.8 thinc-8.2.5 tqdm-4.66.4 typer-0.12.3 typing-extensions-4.12.2 urllib3-2.2.2 wasabi-1.1.3 weasel-0.4.1 wrapt-1.16.0
+
+[notice] A new release of pip is available: 24.0 -> 24.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(venv) D:\AChinniProject\chatbot_proj>python -m spacy download en_core_web_sm
+Collecting en-core-web-sm==3.7.1
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 2.5 MB/s eta 0:00:00
+Requirement already satisfied: spacy<3.8.0,>=3.7.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from en-core-web-sm==3.7.1) (3.7.5)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.12)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.0.5)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (fromspacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.0.10)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.0.8)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.9)
+Requirement already satisfied: thinc<8.3.0,>=8.2.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (8.2.5)
+Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.1.3)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.4.8)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.0.10)
+Requirement already satisfied: weasel<0.5.0,>=0.1.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.4.1)
+Requirement already satisfied: typer<1.0.0,>=0.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.12.3)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (4.66.4)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.32.3)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.8.2)
+Requirement already satisfied: jinja2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.1.4)
+Requirement already satisfied: setuptools in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (70.2.0)
+Requirement already satisfied: packaging>=20.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (24.1)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.4.0)
+Requirement already satisfied: numpy>=1.19.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.26.4)
+Requirement already satisfied: language-data>=1.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from langcodes<4.0.0,>=3.2.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: annotated-types>=0.4.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.2.2)
+Requirement already satisfied: certifi>=2017.4.17 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2024.7.4)
+Requirement already satisfied: blis<0.8.0,>=0.7.8 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.7.11)
+Requirement already satisfied: confection<1.0.0,>=0.0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.1.5)
+Requirement already satisfied: colorama in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from tqdm<5.0.0,>=4.38.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.4.6)
+Requirement already satisfied: click>=8.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (8.1.7)
+Requirement already satisfied: shellingham>=1.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.5.4)
+Requirement already satisfied: rich>=10.11.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (13.7.1)
+Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.18.1)
+Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (7.0.4)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from jinja2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.1.5)
+Requirement already satisfied: marisa-trie>=0.7.7 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.18.0)
+Requirement already satisfied: wrapt in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.16.0)
+Requirement already satisfied: mdurl~=0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.1.2)
+Installing collected packages: en-core-web-sm
+Successfully installed en-core-web-sm-3.7.1
+
+[notice] A new release of pip is available: 24.0 -> 24.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+✔ Download and installation successful
+You can now load the package via spacy.load('en_core_web_sm')
+
+(venv) D:\AChinniProject\chatbot_proj>python verify_installation.py
+C:\Users\ajayk\AppData\Local\Programs\Python\Python312\python.exe: can't open file 'D:\\AChinniProject\\chatbot_proj\\verify_installation.py': [Errno 2] No such file or directory
+
+(venv) D:\AChinniProject\chatbot_proj>venv\Scripts\activate
+
+(venv) D:\AChinniProject\chatbot_proj>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 0EFB-CD1C
+
+ Directory of D:\AChinniProject\chatbot_proj
+
+04-07-2024  23:07    <DIR>          .
+04-07-2024  23:05    <DIR>          ..
+04-07-2024  23:01    <DIR>          venv
+04-07-2024  23:07               202 verify_installation.py.txt
+               1 File(s)            202 bytes
+               3 Dir(s)  51,147,489,280 bytes free
+
+(venv) D:\AChinniProject\chatbot_proj>ren verify_installation.py.txt verify_installation.py
+
+(venv) D:\AChinniProject\chatbot_proj>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 0EFB-CD1C
+
+ Directory of D:\AChinniProject\chatbot_proj
+
+04-07-2024  23:12    <DIR>          .
+04-07-2024  23:05    <DIR>          ..
+04-07-2024  23:01    <DIR>          venv
+04-07-2024  23:07               202 verify_installation.py
+               1 File(s)            202 bytes
+               3 Dir(s)  51,147,489,280 bytes free
+
+(venv) D:\AChinniProject\chatbot_proj>python verify_installation.py
+[nltk_data] Downloading package punkt to
+[nltk_data]     C:\Users\ajayk\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping tokenizers\punkt.zip.
+Installation successful!
+
+(venv) D:\AChinniProject\chatbot_proj>pip install spacy
+Requirement already satisfied: spacy in d:\achinniproject\chatbot_proj\venv\lib\site-packages (3.7.5)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (3.0.12)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (1.0.5)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (fromspacy) (1.0.10)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (2.0.8)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (3.0.9)
+Requirement already satisfied: thinc<8.3.0,>=8.2.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (8.2.5)
+Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (1.1.3)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (2.4.8)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (2.0.10)
+Requirement already satisfied: weasel<0.5.0,>=0.1.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (0.4.1)
+Requirement already satisfied: typer<1.0.0,>=0.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (0.12.3)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (4.66.4)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (2.32.3)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (2.8.2)
+Requirement already satisfied: jinja2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (3.1.4)
+Requirement already satisfied: setuptools in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (70.2.0)
+Requirement already satisfied: packaging>=20.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (24.1)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (3.4.0)
+Requirement already satisfied: numpy>=1.19.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy) (1.26.4)
+Requirement already satisfied: language-data>=1.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from langcodes<4.0.0,>=3.2.0->spacy) (1.2.0)
+Requirement already satisfied: annotated-types>=0.4.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy) (2.2.2)
+Requirement already satisfied: certifi>=2017.4.17 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy) (2024.7.4)
+Requirement already satisfied: blis<0.8.0,>=0.7.8 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy) (0.7.11)
+Requirement already satisfied: confection<1.0.0,>=0.0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy) (0.1.5)
+Requirement already satisfied: colorama in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from tqdm<5.0.0,>=4.38.0->spacy) (0.4.6)
+Requirement already satisfied: click>=8.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy) (8.1.7)
+Requirement already satisfied: shellingham>=1.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy) (1.5.4)
+Requirement already satisfied: rich>=10.11.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy) (13.7.1)
+Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy) (0.18.1)
+Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy) (7.0.4)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from jinja2->spacy) (2.1.5)
+Requirement already satisfied: marisa-trie>=0.7.7 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy) (1.2.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy) (2.18.0)
+Requirement already satisfied: wrapt in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy) (1.16.0)
+Requirement already satisfied: mdurl~=0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy) (0.1.2)
+
+[notice] A new release of pip is available: 24.0 -> 24.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+(venv) D:\AChinniProject\chatbot_proj>python -m spacy download en_core_web_sm
+Collecting en-core-web-sm==3.7.1
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 3.3 MB/s eta 0:00:00
+Requirement already satisfied: spacy<3.8.0,>=3.7.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from en-core-web-sm==3.7.1) (3.7.5)
+Requirement already satisfied: spacy-legacy<3.1.0,>=3.0.11 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.12)
+Requirement already satisfied: spacy-loggers<2.0.0,>=1.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.0.5)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (fromspacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.0.10)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.0.8)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.9)
+Requirement already satisfied: thinc<8.3.0,>=8.2.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (8.2.5)
+Requirement already satisfied: wasabi<1.2.0,>=0.9.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.1.3)
+Requirement already satisfied: srsly<3.0.0,>=2.4.3 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.4.8)
+Requirement already satisfied: catalogue<2.1.0,>=2.0.6 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.0.10)
+Requirement already satisfied: weasel<0.5.0,>=0.1.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.4.1)
+Requirement already satisfied: typer<1.0.0,>=0.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.12.3)
+Requirement already satisfied: tqdm<5.0.0,>=4.38.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (4.66.4)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.32.3)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.8.2)
+Requirement already satisfied: jinja2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.1.4)
+Requirement already satisfied: setuptools in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (70.2.0)
+Requirement already satisfied: packaging>=20.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (24.1)
+Requirement already satisfied: langcodes<4.0.0,>=3.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.4.0)
+Requirement already satisfied: numpy>=1.19.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.26.4)
+Requirement already satisfied: language-data>=1.2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from langcodes<4.0.0,>=3.2.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: annotated-types>=0.4.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from pydantic!=1.8,!=1.8.1,<3.0.0,>=1.7.4->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (4.12.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.2.2)
+Requirement already satisfied: certifi>=2017.4.17 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2024.7.4)
+Requirement already satisfied: blis<0.8.0,>=0.7.8 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.7.11)
+Requirement already satisfied: confection<1.0.0,>=0.0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from thinc<8.3.0,>=8.2.2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.1.5)
+Requirement already satisfied: colorama in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from tqdm<5.0.0,>=4.38.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.4.6)
+Requirement already satisfied: click>=8.0.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (8.1.7)
+Requirement already satisfied: shellingham>=1.3.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.5.4)
+Requirement already satisfied: rich>=10.11.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (13.7.1)
+Requirement already satisfied: cloudpathlib<1.0.0,>=0.7.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.18.1)
+Requirement already satisfied: smart-open<8.0.0,>=5.2.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (7.0.4)
+Requirement already satisfied: MarkupSafe>=2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from jinja2->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.1.5)
+Requirement already satisfied: marisa-trie>=0.7.7 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from language-data>=1.2->langcodes<4.0.0,>=3.2.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (2.18.0)
+Requirement already satisfied: wrapt in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from smart-open<8.0.0,>=5.2.1->weasel<0.5.0,>=0.1.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (1.16.0)
+Requirement already satisfied: mdurl~=0.1 in d:\achinniproject\chatbot_proj\venv\lib\site-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer<1.0.0,>=0.3.0->spacy<3.8.0,>=3.7.2->en-core-web-sm==3.7.1) (0.1.2)
+
+[notice] A new release of pip is available: 24.0 -> 24.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+✔ Download and installation successful
+You can now load the package via spacy.load('en_core_web_sm')
+
+(venv) D:\AChinniProject\chatbot_proj>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 0EFB-CD1C
+
+ Directory of D:\AChinniProject\chatbot_proj
+
+04-07-2024  23:19    <DIR>          .
+04-07-2024  23:05    <DIR>          ..
+04-07-2024  23:19                 0 faq_chatbot.py.txt
+04-07-2024  23:01    <DIR>          venv
+04-07-2024  23:07               202 verify_installation.py
+               2 File(s)            202 bytes
+               3 Dir(s)  51,147,489,280 bytes free
+
+(venv) D:\AChinniProject\chatbot_proj>ren faq_chatbot.py.txt faq_chatbot.py
+
+(venv) D:\AChinniProject\chatbot_proj>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 0EFB-CD1C
+
+ Directory of D:\AChinniProject\chatbot_proj
+
+04-07-2024  23:20    <DIR>          .
+04-07-2024  23:05    <DIR>          ..
+04-07-2024  23:19                 0 faq_chatbot.py
+04-07-2024  23:01    <DIR>          venv
+04-07-2024  23:07               202 verify_installation.py
+               2 File(s)            202 bytes
+               3 Dir(s)  51,147,489,280 bytes free
+
+(venv) D:\AChinniProject\chatbot_proj>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is 0EFB-CD1C
+
+ Directory of D:\AChinniProject\chatbot_proj
+
+04-07-2024  23:20    <DIR>          .
+04-07-2024  23:05    <DIR>          ..
+04-07-2024  23:21             1,884 faq_chatbot.py
+04-07-2024  23:01    <DIR>          venv
+04-07-2024  23:07               202 verify_installation.py
+               2 File(s)          2,086 bytes
+               3 Dir(s)  51,147,485,184 bytes free
+
+(venv) D:\AChinniProject\chatbot_proj>venv\Scripts\activate
+
+(venv) D:\AChinniProject\chatbot_proj>python faq_chatbot.py
+Welcome! I'm FAQ Chatbot. Ask me anything about our products or policies.
+You: How can I track my order?
+D:\AChinniProject\chatbot_proj\faq_chatbot.py:32: UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Doc.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship withword vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the largermodels instead if available.
+  similarity = nlp(processed_input).similarity(nlp(processed_question))
+FAQ Bot: You can track your order using the tracking link sent to your email.
+You:
